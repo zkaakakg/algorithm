@@ -3,6 +3,7 @@ public class Main {
 
 	public static void main(String[] args) throws Exception{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
 		
 		int cnt = 0;
 		while(true) {
@@ -15,7 +16,9 @@ public class Main {
 			
 			int result = (v/p) * l + Math.min(v%p, l);
 			cnt++;
-			System.out.println("Case" + " " + cnt +":"+ " "+ result);
+			sb.append("Case ").append(cnt).append(": ").append(result).append("\n");
 		}
+		
+		System.out.print(sb.toString());
 	}
 }
