@@ -1,27 +1,33 @@
-import java.util.*;
-
+import java.io.*;
 public class Main {
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) throws Exception{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
 		
-		int n = sc.nextInt();
-		int k = sc.nextInt();
+		String[] input = br.readLine().split(" ");
 		
-		int[] coin = new int[n];
+		int n = Integer.parseInt(input[0]);
+		int k = Integer.parseInt(input[1]);
+		int[] arr = new int[n];
+		int result = 0;
+		
 		for(int i = 0; i < n; i++) {
-			coin[i] = sc.nextInt();
+			arr[i] = Integer.parseInt(br.readLine());
 		}
 		
-		int cnt = 0;
-		
-		for(int i = n-1; i >= 0; i--) {
-			if(k >= coin[i]) {
-				cnt += k/coin[i];
-				k = k % coin[i];
+		for(int i = n-1; i > -1; i--) {
+			if(arr[i] <= k) {
+				result += k / arr[i];
+				k = k % arr[i];
+			}else if(k == 0) {
+				break;
 			}
 		}
-	
-		System.out.println(cnt);
+		
+		sb.append(result);
+		System.out.println(sb.toString());
+
 	}
+
 }
