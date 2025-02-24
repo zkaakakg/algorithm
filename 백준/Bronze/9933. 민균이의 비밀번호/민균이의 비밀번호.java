@@ -13,11 +13,8 @@ public class Main {
 			String str = br.readLine();
 			set.add(str);
 			
-			String reverse = "";
-			for(int j = str.length()-1; j > -1; j--) {
-				reverse += str.charAt(j);
-			}
-			
+			String reverse = new StringBuilder(str).reverse().toString();
+
 			if(set.contains(reverse)) {
 				result = str;
 			}
