@@ -16,7 +16,7 @@ public class Main {
 	}
 	
 	public static int solution(int n, int r) {
-		if(arr[n][r] > 0) return arr[n][r];
+        if(arr[n][r] > 0) return arr[n][r];
 		if(n == r || r == 0) return arr[n][r] = 1; 
 		
 		return arr[n][r] = (solution(n-1, r-1) + solution(n-1, r)) % 10007;
