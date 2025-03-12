@@ -25,14 +25,26 @@ public class Main {
 
       Arrays.sort(b);
       int cnt = 0;
-
+ 
       for(int i = 0; i < n; i++){
-        for(int j = 0; j < m; j++){
-          if(a[i] > b[j]) cnt++;
-        }
+        cnt += search(b, a[i]);
       }
       System.out.println(cnt);
     }
+  }
 
+  public static int search(int[] arr, int key){
+    int start = 0;
+    int end = arr.length;
+
+    while (start < end) {
+      int mid = (start + end) / 2;
+      if(arr[mid] < key){
+        start = mid + 1;
+      }else {
+        end = mid;
+      }
+    }
+    return start;
   }
 }
