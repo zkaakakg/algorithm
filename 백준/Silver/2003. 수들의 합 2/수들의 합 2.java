@@ -17,23 +17,17 @@ public class Main {
 		}
 		
 		
-		int cnt = 0;
-		
-		for(int i = 0; i < n; i++) {
-			int sum = arr[i];
+		int cnt = 0 , sum = 0, left = 0, right = 0;
+		while(right < n) {
+			sum += arr[right];
+			
+			while(sum > m) {
+				sum -= arr[left++];
+			}
 			if(sum == m) {
 				cnt++;
 			}
-			for(int j = i+1; j < n; j++) {
-				sum += arr[j];
-				if(sum == m) {
-					cnt++;
-					break;
-				}else if(sum > m) {
-					break;
-				}
-			}
-			
+			right++;
 		}
 		System.out.println(cnt);
 
