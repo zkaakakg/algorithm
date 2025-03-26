@@ -1,5 +1,5 @@
 import java.io.*;
-
+import java.util.*;
 public class Main {
   public static void main(String[] args) throws Exception{
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -13,12 +13,18 @@ public class Main {
     }
 
     int cnt = 0;
-    for(int i = 0 ; i < n; i++){
-      for(int j = i + 1;  j < n; j++){
-        int sum = arr[i] + arr[j] ;
-        if(sum == m){
-          cnt++;
-        }
+    int left = 0, right = n-1;
+    Arrays.sort(arr);
+    while(left < right){
+      int sum = arr[left] + arr[right];
+      if(sum == m){
+        cnt++;
+        left++;
+        right--;
+      }else if(sum < m){
+        left++;
+      }else{
+        right--;
       }
     }
     System.out.println(cnt);
