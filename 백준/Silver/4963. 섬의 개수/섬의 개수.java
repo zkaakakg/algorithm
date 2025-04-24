@@ -12,25 +12,25 @@ public class Main {
 
         while (true) {
             String[] input = br.readLine().split(" ");
-            w = Integer.parseInt(input[0]);
-            h = Integer.parseInt(input[1]);
+            h = Integer.parseInt(input[0]);
+            w = Integer.parseInt(input[1]);
 
             if (w == 0 && h == 0) {
                 break;
             }
 
-            arr = new int[h][w];
+            arr = new int[w][h];
 
-            for (int i = 0; i < h; i++) {
+            for (int i = 0; i < w; i++) {
                 input = br.readLine().split(" ");
-                for (int j = 0; j < w; j++) {
+                for (int j = 0; j < h; j++) {
                     arr[i][j] = Integer.parseInt(input[j]);
                 }
             }
 
             int cnt = 0;
-            for (int i = 0; i < h; i++) {
-                for (int j = 0; j < w; j++) {
+            for (int i = 0; i < w; i++) {
+                for (int j = 0; j < h; j++) {
                     if (arr[i][j] == 1) {
                         dfs(i, j);
                         cnt++;
@@ -48,7 +48,7 @@ public class Main {
             int nx = x + dx[i];
             int ny = y + dy[i];
 
-            if (nx >= 0 && ny >= 0 && nx < h && ny < w && arr[nx][ny] == 1) {
+            if (nx >= 0 && ny >= 0 && nx < w && ny < h && arr[nx][ny] == 1) {
                 dfs(nx, ny);
             }
         }
