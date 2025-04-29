@@ -1,7 +1,5 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
+import java.io.*;
+import java.util.*;
 
 public class Main {
     static int s, p;
@@ -29,13 +27,13 @@ public class Main {
         }
 
         int result = 0;
-        if (isVaild()) result++;
+        if (isCheck()) result++;
 
         for (int i = p; i < s; i++) {
             updateCnt(i - p, -1);
             updateCnt(i, +1);
 
-            if (isVaild()) result++;
+            if (isCheck()) result++;
         }
 
         System.out.println(result);
@@ -58,7 +56,7 @@ public class Main {
         }
     }
 
-    public static boolean isVaild(){
+    public static boolean isCheck(){
         for (int i = 0; i < 4; i++) {
             if (cnt[i] < required[i]) return false;
         }
