@@ -1,9 +1,10 @@
 import java.io.*;
 
-public class Main{
+public class Main {
+    static final int MAX = 1000000;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int MAX = 1000000;
+
         long[] f = new long[MAX + 1];
         long[] g = new long[MAX + 1];
 
@@ -18,9 +19,11 @@ public class Main{
         }
 
         int t = Integer.parseInt(br.readLine());
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < t; i++) {
             int n = Integer.parseInt(br.readLine());
-            System.out.println(g[n]);
+            sb.append(g[n]).append('\n');
         }
+        System.out.println(sb);
     }
 }
