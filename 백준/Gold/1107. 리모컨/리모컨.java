@@ -11,12 +11,12 @@ public class Main {
             System.out.println(0);
             return;
         }
-        
-        int[] arr = new int[m];
+
+        boolean[] arr = new boolean[10];
         if ( m != 0){
             String[] input = br.readLine().split(" ");
             for (int i = 0; i < m; i++) {
-                arr[i] = Integer.parseInt(input[i]);
+                arr[Integer.parseInt(input[i])] = true;
             }
         }
 
@@ -26,13 +26,9 @@ public class Main {
 
             boolean isCheck = false;
             for (int j = 0; j < num.length(); j++) {
-                for (int k = 0; k < m; k++) {
-                    if (arr[k] == num.charAt(j) - '0') {
-                        isCheck = true;
-                        break;
-                    }
+                if (arr[num.charAt(j) - '0']){
+                    isCheck = true;
                 }
-                if (isCheck) break;
             }
 
             if (!isCheck) {
