@@ -23,11 +23,6 @@ public class Main {
         n = Integer.parseInt(br.readLine());
         m = Integer.parseInt(br.readLine());
 
-        if (n == 100) {
-            System.out.println(0);
-            return;
-        }
-
         arr = new boolean[10];
         if ( m != 0){
             String[] input = br.readLine().split(" ");
