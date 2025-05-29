@@ -2,21 +2,22 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+    static final int MAX = 100000;
+
     public static int bfs(int n, int k) {
         if (n == k) {
             return 0;
         }
 
-        int max = 1000000;
-        boolean[] visited = new boolean[max + 1];
-        int[] time = new int[max + 1];
+        boolean[] visited = new boolean[MAX + 1];
+        int[] time = new int[MAX + 1];
 
 
         Queue<Integer> queue = new LinkedList<>();
 
         queue.add(n);
         visited[n] = true;
-        time[n] = 1;
+        time[n] = 0;
 
         while (!queue.isEmpty()) {
             int current = queue.poll();
@@ -24,19 +25,20 @@ public class Main {
             if (current - 1 >= 0 && !visited[current - 1]) {
                 visited[current - 1] = true;
                 time[current - 1] = time[current] + 1;
+                if (current - 1 == k) return time[current - 1];
                 queue.add(current - 1);
             }
-            if (current + 1 <= max && !visited[current + 1]) {
+            if (current + 1 <= MAX && !visited[current + 1]) {
                 visited[current + 1] = true;
                 time[current + 1] = time[current] + 1;
+                if (current + 1 == k) return time[current + 1];
                 queue.add(current + 1);
             }
-            if (current * 2 <= max && !visited[current * 2]) {
+            if (current * 2 <= MAX && !visited[current * 2]) {
                 visited[current * 2] = true;
                 time[current * 2] = time[current] + 1;
+                if (current * 2 == k) return time[current * 2];
                 queue.add(current * 2);
-            } else if (visited[k]) {
-                return time[k] - 1;
             }
         }
         return -1;
