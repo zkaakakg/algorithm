@@ -27,8 +27,8 @@ public class Main {
 
         for (int i = 0; i < m; i++) {
             if (score[i] < 100) {
-                int maxTime = Math.min(b[i], 100 - score[i]);
-                pq.offer(new int[]{maxTime, i});
+                int increase  = Math.min(b[i], 100 - score[i]);
+                pq.offer(new int[]{increase , i});
             }
         }
 
@@ -44,8 +44,8 @@ public class Main {
             time--;
 
             if (score[i] < 100) {
-                int t = Math.min(b[i], 100-score[i]);
-                pq.offer(new int[]{t, i});
+                int newIncrease  = Math.min(b[i], 100 - score[i]);
+                pq.offer(new int[]{newIncrease, i});
             }
 
         }
