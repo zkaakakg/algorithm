@@ -1,7 +1,6 @@
 class Solution {
     public String solution(int[] numbers, String hand) {
-         String answer = "";
-        int[][] keypad = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {-1, 0, -2}};
+        String answer = "";
         int[][] pos = {{3, 1}, {0, 0}, {0, 1}, {0, 2}, {1, 0}, {1, 1}, {1, 2}, {2, 0}, {2, 1}, {2, 2}};
         int[] left = {3, 0};
         int[] right = {3, 2};
